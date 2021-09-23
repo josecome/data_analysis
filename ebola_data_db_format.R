@@ -3,7 +3,7 @@
 #Dataset: https://data.world/brianray/ebola-cases/workspace/file?filename=ebola_data_db_format.csv
 
 library(tidyr)
-dr <- "C:/Users/josecome/Documents/P/Personal Project/Data" # configure local path for downloaded csv file.
+dr <- "C:/Path" # configure local path for downloaded csv file.
 df <- read.csv(paste(dr,"/ebola_data_db_format.csv",sep=""), header = TRUE,stringsAsFactors=FALSE,na.strings="")
 #Columns names
 names(df)
