@@ -10,13 +10,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-#Getting data to dataframe
+#Import libraries
 library(readr)
 library(car)
 library(ggplot2)
 
 # Directory path
-dir <- "path"
+dir <- "C:/Users/COME/Downloads/Master Degree/Coding/Analisis/Data Analisis/data_analysis_r/"
 
 # Set working directory
 setwd(dir)
