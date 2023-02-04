@@ -1,6 +1,6 @@
 # Data analysis content written in R and Pyton
 ------------------------------------------------------------------------------------------------------
-If you like to write code and scripts for data analysis you in the write place.   
+If you like to write code and scripts for data analysis you are in the write place.   
 Here you can find code and scripts written in **R** and **Python**.   
 Enjoy!  
 
