@@ -1,0 +1,6 @@
+
+# The file that will be ignored
+
+.RData
+
+.Rhistory
