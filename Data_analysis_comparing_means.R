@@ -16,7 +16,7 @@ library(car)
 library(ggplot2)
 
 # Directory path
-dir <- "C:/Users/COME/Downloads/Master Degree/Coding/Analisis/Data Analisis/data_analysis_r/"
+dir <- "C:/path/"
 
 # Set working directory
 setwd(dir)

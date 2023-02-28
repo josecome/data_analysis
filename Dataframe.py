@@ -55,5 +55,5 @@ df.iloc[:, 0:1]
 #Select rows that value in column age = 80
 df.loc[df['age'] == 80]
 
-#Select rows based in two condition
+#Select rows based on more than one condition
 df.loc[(df['age'] > 79) & (df['age'] < 100) & (df['gender'] == "M")]

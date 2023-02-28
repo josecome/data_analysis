@@ -29,5 +29,5 @@ median <- median(df$col_1, na.rm = TRUE)
 df$col_1[df$col_1 > 3 * median] <- median
 
 # Export file in csv format
-#write.csv(df, "cleaned_data.csv")
+# write.csv(df, "cleaned_data.csv")
 

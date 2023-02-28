@@ -1,6 +1,6 @@
-# Python write and read file
+# R write and read file
 
-x = "Testing..."
+x # dataframe
 
 #Write csv file
 write.csv(x, file = 'incomes.csv')

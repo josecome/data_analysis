@@ -39,7 +39,7 @@ for (x in a){
   print(x)
 }
 
-#Use breack to interrupt loop
+#Use break to interrupt loop
 a = ["a", "b", "c"]
 for (x in a){
     break;
@@ -61,10 +61,10 @@ for (x in 2:8){
 }
 
 #Vector
-ary = c("A", "B", "C")
+c = c("A", "B", "C")
 
-#Loop in array
-for (x in ary){
+#Loop in vector
+for (x in c){
   print(x)
 }
 

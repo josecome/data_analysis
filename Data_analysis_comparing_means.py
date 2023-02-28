@@ -25,7 +25,7 @@ from scipy.stats import chisquare
 from statsmodels.stats.multicomp import pairwise_tukeyhsd
 
 # Directory path
-dir = "C:/Users/COME/Downloads/Master Degree/Coding/Analisis/Data Analisis/data_analysis_python/"
+dir = "C:/path/"
 
 # Set working directory
 os.chdir(dir)

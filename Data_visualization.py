@@ -2,8 +2,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-#Draw a line in a diagram from position (0,0) to position (6,250):
-
 import matplotlib.pyplot as plt
 
 #Draw lines in follow coordinates: (0, 0) and (4, 60)
