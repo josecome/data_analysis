@@ -10,7 +10,7 @@ f.close()
 f = open('myf.txt', 'r')
 L = f.readlines()
 
-count = 0
+c = 0
 # Strips the newline character
 for l in L:
 	c += 1
