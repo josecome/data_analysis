@@ -61,6 +61,13 @@ print(tpl1[4:9])
 
 #Delete tpl
 tpl1 = (0, 1, 2, 3, 4)
+
+# Delete 2 in tuple
+tpl1 = tuple(x for x in tpl if x != 2)
+print(tpl1)
+
+
+# Delete all tuple
 del tpl1
 
 print(tpl1)
@@ -73,10 +80,11 @@ print(n_tpl[1][0])       # 's'
 print(n_tpl[0][2])       # 4
 
 #Negative acessing of elements in tpl
-tpl1 = (1, 2, 3, 4, 5, 6, 7, 8)
+tpl = (1, 2, 3, 4, 5, 6, 7, 8)
 
-# Output: 't'
-print(tpl1[-2])
+# Output: '7'
+print(tpl[-2])
 
-# Output: 'p'
-print(tpl1[-4])
+# Output: '5'
+print(tpl[-4])
+
