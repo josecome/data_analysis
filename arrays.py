@@ -44,6 +44,12 @@ i = iter(a)
 print(next(i))
 print(next(i))
 
+# Loop array given index
+for i, v in enumerate(a):
+    print(i, v)  
+# 0 a
+# 1 b
+# 2 c
 
 #Methos to work with array
 #append()	Adds an element at the end of the list
