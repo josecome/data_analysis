@@ -5,7 +5,7 @@ library(corrplot)
 library(factoextra)
 
 # Getting data from iris file
-df <- read.csv('iris.csv')
+df <- iris
 
 # Taking the first 4 columns
 df <- df[,1:4]
@@ -55,11 +55,4 @@ fviz_dend(hc.res) # dendrogam
 
 cluster_df <- as.data.frame(hc.res$cluster)
 df_final <- cbind(df, cluster_df)
-
-# Average in each cluster
-clusterGroups = cutree(hc.res, k = 2)
-tapply(df$sepal.length, clusterGroups, mean)
-tapply(df$sepal.width, clusterGroups, mean)
-tapply(df$petal.length, clusterGroups, mean)
-tapply(df$petal.width, clusterGroups, mean)
 

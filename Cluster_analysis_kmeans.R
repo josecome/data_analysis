@@ -5,7 +5,7 @@ library(corrplot)
 library(factoextra)
 
 # Getting data from iris file
-df <- read.csv('iris.csv')
+df <- iris
 
 # Taking the first 4 columns
 df <- df[,1:4]
