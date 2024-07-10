@@ -23,8 +23,6 @@ adf.test(timeseries2) # if p < 0.005, time series is stationary
 acf(timeseries)
 pacf(timeseries)
 
-
-
 # Spliting data into train and test
 train_series=timeseries[1:90]
 test_series=timeseries[91:100]
