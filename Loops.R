@@ -23,7 +23,7 @@ for (x in a){
 
 #Use break to interrupt loop
 for (i in c){
-    if(i == "c" {
+    if(i == "c") {
         break
     }
     print(i)
