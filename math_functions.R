@@ -58,8 +58,8 @@ print(x)
 
 # Function to get Mode
 mde <- function(c) {
-   u <- unique(c)
-   u[which.max(tabulate(match(v, u)))]
+  u <- unique(c)
+  u[which.max(tabulate(match(c, u)))]
 }
 
-print(numbers)
+print(mde(numbers))
