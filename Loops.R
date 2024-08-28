@@ -15,37 +15,21 @@ while (i < 4) {
   i = i + 1  
 }
 
-#Interupt current interation and continue with next
-i = 1
-while (i < 4) {
-  print(i)
-  if (i == 2){
-    next;
-  }
-  i = i + 1  
-}
-
-#Loop but allow change scope when the condition is not meet any more  
-i = 1
-while i < 4:
-  print(i)
-  i += 1
-else:
-  print("i is no longer less than 6")
-
-#Loop from array
-a = ["a", "b", ""]
+#Loop from Vector
+c = c("a", "b", "c", "d")
 for (x in a){
   print(x)
 }
 
 #Use break to interrupt loop
-a = ["a", "b", "c"]
-for (x in a){
-    break;
+for (i in c){
+    if(i == "c" {
+        break
+    }
+    print(i)
 }
 
-#Loop in range	
+#Loop in range
 for (x in 2:8){
   print(x)
 }
@@ -60,11 +44,4 @@ for (x in 2:8){
   }
 }
 
-#Vector
-c = c("A", "B", "C")
-
-#Loop in vector
-for (x in c){
-  print(x)
-}
 
