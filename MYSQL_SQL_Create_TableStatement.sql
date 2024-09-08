@@ -2,6 +2,7 @@
 DROP TABLE IF EXISTS persons;
 DROP TABLE IF EXISTS persons_2;
 DROP TABLE IF EXISTS persons_3;
+DROP TABLE IF EXISTS Address_fk;
 DROP TABLE IF EXISTS persons_pk_1;
 DROP TABLE IF EXISTS persons_pk_2;
 DROP TABLE IF EXISTS persons_pk_3;
@@ -53,10 +54,10 @@ CREATE TABLE Persons_u (
 
 --Inserting Records
 INSERT INTO Persons (PersonID, FirstName, LastName) VALUES (1, 'Jose', 'Come');
-INSERT INTO Persons_2 (PersonID, FirstName, LastName) VALUES (1, 'Jose', 'Come’);
+INSERT INTO Persons_2 (PersonID, FirstName, LastName) VALUES (1, 'Jose', 'Come');
 INSERT INTO Persons_3 (PersonID, FirstName, LastName) VALUES (1, 'Jose', 'Come');
-INSERT INTO Persons_pk_1 (FirstName, LastName) VALUES ('Jose', 'Come’);
-INSERT INTO Persons_pk_2 (FirstName, LastName) VALUES ('Jose', 'Come’);
-INSERT INTO Persons_pk_3 (FirstName, LastName) VALUES ('Jose', 'Come’);
+INSERT INTO Persons_pk_1 (FirstName, LastName) VALUES ('Jose', 'Come');
+INSERT INTO Persons_pk_2 (FirstName, LastName) VALUES ('Jose', 'Come');
+INSERT INTO Persons_pk_3 (FirstName, LastName) VALUES ('Jose', 'Come');
 INSERT INTO Address_fk (address, PersonID) VALUES ('Address 1234', 1);
 INSERT INTO Persons_u (Phone, FirstName, LastName) VALUES (1234, 'Jose', 'Come');
