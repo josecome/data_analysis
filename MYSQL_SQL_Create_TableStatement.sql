@@ -1,3 +1,5 @@
+--By Jose Come 08Set2024
+
 --Drop tables if exist
 DROP TABLE IF EXISTS persons;
 DROP TABLE IF EXISTS persons_2;
