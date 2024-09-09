@@ -1,5 +1,10 @@
 --By Jose Come 08Set2024
 
+--Creating database if doesn't exist and use it
+CREATE DATABASE IF NOT EXISTS exercises;
+USE exercises;
+
+-----------------------CREATE TAB;E---------------------------------------------
 --Drop tables if exist
 DROP TABLE IF EXISTS persons;
 DROP TABLE IF EXISTS persons_2;
@@ -63,3 +68,26 @@ INSERT INTO Persons_pk_2 (FirstName, LastName) VALUES ('Jose', 'Come');
 INSERT INTO Persons_pk_3 (FirstName, LastName) VALUES ('Jose', 'Come');
 INSERT INTO Address_fk (address, PersonID) VALUES ('Address 1234', 1);
 INSERT INTO Persons_u (Phone, FirstName, LastName) VALUES (1234, 'Jose', 'Come');
+
+-----------------------INSERT/UPDATE/DELETE---------------------------------------------
+CREATE TABLE preferred_colors (
+    ColorID int PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    ColorName varchar(20) UNIQUE
+);
+INSERT INTO preferred_colors (ColorName) VALUES ('Blue');
+INSERT INTO preferred_colors (ColorName) VALUES ('Green');
+INSERT INTO preferred_colors (ColorName) VALUES ('Yellow');
+INSERT INTO preferred_colors (ColorName) VALUES ('Grey');
+ALTER TABLE persons_pk_1 ADD column ColorID int NULL;
+
+INSERT INTO Persons (PersonID, FirstName, LastName) VALUES (1, 'Jose', 'Come');
+INSERT INTO Persons_pk_1 (FirstName, LastName) VALUES ('Jose', 'Come');
+INSERT INTO Persons_2 SELECT * FROM Persons;
+INSERT INTO Persons_2 SELECT * FROM Persons WHERE FirstName = 'Jose';
+INSERT INTO Persons_pk_1 (FirstName, LastName,ColorID) VALUES ('Jose', 'Come',(SELECT ColorID From preferred_colors c WHERE c.ColorName='Blue'));
+UPDATE Persons SET FirstName='Come', LastName='Come';
+UPDATE Persons SET FirstName='Jose', LastName= 'Come' WHERE PersonID=1;
+DELETE FROM Persons;
+DELETE FROM Persons_2 WHERE PersonID=1;
+DELETE FROM Persons WHERE PersonID=1 AND LastName='Come';
+
