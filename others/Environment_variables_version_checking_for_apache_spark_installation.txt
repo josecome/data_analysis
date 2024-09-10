@@ -1,0 +1,12 @@
+# Configure environment variables
+JAVA_HOME C:\Program Files\Java\jdk1.8.0_192
+HADOOP_HOME C:\Users\COME\Downloads\Materials\spark3
+SPARK_HOME C:\Users\COME\Downloads\Materials\spark3
+PYSPARK_PYTHON C:\Users\COME\AppData\Local\Programs\Python\Python310\python.exe
+
+# Checking Installed versions
+spark-submit --version
+pyspark --version
+
+
+
