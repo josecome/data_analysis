@@ -4,6 +4,7 @@
 -- 1 - CREATE TABLE
 -- 2 - INSERT|UPDATE|DELETE
 -- 3 - JOIN
+-- 4 - Removing Duplicates
 
 --Creating database if doesn't exist and use it
 CREATE DATABASE IF NOT EXISTS exercises;
@@ -148,6 +149,45 @@ SELECT * FROM table_2 WHERE id IN (SELECT id FROM table_1);
 
 -- EXISTS SEMIJOIN
 SELECT * FROM table_1 WHERE EXISTS (SELECT id FROM table_2 WHERE table_1.id = table_2.id);
+-- ------------------------4 - Removing Duplicates----------------------------------------------------
+-- Creating tables
+DROP TABLE IF EXISTS table_with_duplicates;
+DROP TABLE IF EXISTS table_with_duplicates_2;
+CREATE TABLE table_with_duplicates (id int(1), column_1 tinyint(1), duplicated int(1));
+INSERT INTO table_with_duplicates (id, column_1, duplicated) VALUES('1', 0, '1');
+INSERT INTO table_with_duplicates (id, column_1, duplicated) VALUES('2', 0, '2');
+INSERT INTO table_with_duplicates (id, column_1, duplicated) VALUES('3', 1, '2');
+INSERT INTO table_with_duplicates (id, column_1, duplicated) VALUES('4', 1, '1');
+INSERT INTO table_with_duplicates (id, column_1, duplicated) VALUES('5', 0, '5');
+INSERT INTO table_with_duplicates (id, column_1, duplicated) VALUES('6', 0, '6');
+INSERT INTO table_with_duplicates (id, column_1, duplicated) VALUES('7', 1, '5');
+INSERT INTO table_with_duplicates (id, column_1, duplicated) VALUES('8', 0, '3');
+INSERT INTO table_with_duplicates (id, column_1, duplicated) VALUES('9', 1, '3');
+INSERT INTO table_with_duplicates (id, column_1, duplicated) VALUES('10', 'G2', '6');
+CREATE TABLE table_with_duplicates_2 (id int(1), column_1 char(2), duplicated int(1));
+INSERT INTO table_with_duplicates_2 (id, column_1, duplicated) VALUES('1', 0, '1');
+INSERT INTO table_with_duplicates_2 (id, column_1, duplicated) VALUES('2', 0, '2');
+INSERT INTO table_with_duplicates_2 (id, column_1, duplicated) VALUES('3', 1, '2');
+INSERT INTO table_with_duplicates_2 (id, column_1, duplicated) VALUES('4', 1, '1');
+INSERT INTO table_with_duplicates_2 (id, column_1, duplicated) VALUES('5', 0, '5');
+INSERT INTO table_with_duplicates_2 (id, column_1, duplicated) VALUES('6', 0, '6');
+INSERT INTO table_with_duplicates_2 (id, column_1, duplicated) VALUES('7', 1, '5');
+INSERT INTO table_with_duplicates_2 (id, column_1, duplicated) VALUES('8', 0, '3');
+INSERT INTO table_with_duplicates_2 (id, column_1, duplicated) VALUES('9', 1, '3');
+INSERT INTO table_with_duplicates_2 (id, column_1, duplicated) VALUES('10', 1, '6');
+SELECT * FROM table_with_duplicates;
+SELECT * FROM table_with_duplicates_2;
+
+-- Removing duplicates
+DELETE t1 FROM table_with_duplicates t1 INNER JOIN table_with_duplicates t2 
+WHERE t1.duplicated = t2.duplicated AND t1.id > t2.id;
+DELETE t1 FROM table_with_duplicates_2 t1 INNER JOIN table_with_duplicates_2 t2 
+WHERE t1.duplicated = t2.duplicated AND t1.id < t2.id;
+
+-- Displaying records
+SELECT * FROM table_with_duplicates ORDER BY id;
+SELECT * FROM table_with_duplicates_2 ORDER BY id;
+
 
 
 
