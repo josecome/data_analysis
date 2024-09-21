@@ -5,6 +5,7 @@
 -- 2 - INSERT|UPDATE|DELETE
 -- 3 - JOIN
 -- 4 - Removing Duplicates
+-- 5 - Aggregate Functions
 
 --Creating database if doesn't exist and use it
 CREATE DATABASE IF NOT EXISTS exercises;
@@ -188,6 +189,32 @@ WHERE t1.duplicated = t2.duplicated AND t1.id < t2.id;
 SELECT * FROM table_with_duplicates ORDER BY id;
 SELECT * FROM table_with_duplicates_2 ORDER BY id;
 
+-- ------------------------5 - Aggregate Functions----------------------------------------------------
+-- Creating tables
+CREATE TABLE fruits (
+    id int PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    Name varchar(20),
+    Quantity int(2)
+);
+
+-- Inserting data
+INSERT INTO fruits (Name, Quantity) VALUES ('Banana', 10);
+INSERT INTO fruits (Name, Quantity) VALUES ('Banana', 20);
+INSERT INTO fruits (Name, Quantity) VALUES ('Orange', 30);
+INSERT INTO fruits (Name, Quantity) VALUES ('Orange', 40);
+INSERT INTO fruits (Name, Quantity) VALUES ('Apple', 50);
+INSERT INTO fruits (Name, Quantity) VALUES ('Apple', 60);
+
+-- Retrieving all data
+SELECT * FROM fruits;
+
+-- Retrieving aggregated data
+SELECT name, SUM(Quantity) FROM fruits GROUP BY name;
+SELECT name, SUM(Quantity) , AVG(Quantity) FROM fruits GROUP BY name;
+SELECT Name, SUM(Quantity) AS Total_Quantity FROM fruits GROUP BY name; 
+SELECT Name, SUM(Quantity) AS Total_Quantity FROM fruits GROUP BY name ORDER BY name ASC;
+SELECT Name, SUM(Quantity) AS Total_Quantity FROM fruits GROUP BY name ORDER BY name DESC;
+SELECT Name, COUNT(Quantity) FROM fruits GROUP BY name HAVING COUNT(*) > 1;
 
 
 
