@@ -6,6 +6,7 @@
 -- 3 - JOIN
 -- 4 - Removing Duplicates
 -- 5 - Aggregate Functions
+-- 6 - Subquery
 
 --Creating database if doesn't exist and use it
 CREATE DATABASE IF NOT EXISTS exercises;
@@ -215,6 +216,42 @@ SELECT Name, SUM(Quantity) AS Total_Quantity FROM fruits GROUP BY name;
 SELECT Name, SUM(Quantity) AS Total_Quantity FROM fruits GROUP BY name ORDER BY name ASC;
 SELECT Name, SUM(Quantity) AS Total_Quantity FROM fruits GROUP BY name ORDER BY name DESC;
 SELECT Name, COUNT(Quantity) FROM fruits GROUP BY name HAVING COUNT(*) > 1;
+
+-- ------------------------6 - Subquery ----------------------------------------------------
+-- Creating tables
+CREATE TABLE fruit_code (
+    Id int PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    Name varchar(20)
+);
+CREATE TABLE fruits (
+    id int PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    Quantity int(2),
+    Fruit_id int,
+    FOREIGN KEY (Fruit_id) REFERENCES fruit_code(Id)    
+);
+
+-- Inserting data
+INSERT INTO fruit_code (Name) VALUES ('Banana'); 
+INSERT INTO fruit_code (Name) VALUES ('Orange');
+INSERT INTO fruit_code (Name) VALUES ('Apple');
+INSERT INTO fruits (Quantity, Fruit_id) VALUES (10, 1);
+INSERT INTO fruits (Quantity, Fruit_id) VALUES (20, 1);
+INSERT INTO fruits (Quantity, Fruit_id) VALUES (30, 2);
+INSERT INTO fruits (Quantity, Fruit_id) VALUES (40, 2);
+INSERT INTO fruits (Quantity, Fruit_id) VALUES (50, 3);
+INSERT INTO fruits (Quantity, Fruit_id) VALUES (60, 3);
+
+-- Selecting data
+SELECT * FROM fruit_code;
+SELECT * FROM fruits;
+
+-- Statements wit Subquery
+SELECT * FROM fruits WHERE Fruit_id = (SELECT id FROM fruit_code WHERE name = 'Banana'); 
+UPDATE fruits SET Fruit_id = 1 WHERE Fruit_id = (SELECT id FROM fruit_code WHERE name = 'Orange');
+SELECT * FROM fruits;
+DELETE FROM fruits WHERE Fruit_id = (SELECT id FROM fruit_code WHERE name = 'Apple');
+SELECT * FROM fruits;
+
 
 
 
