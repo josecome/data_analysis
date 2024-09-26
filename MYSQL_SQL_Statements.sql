@@ -7,7 +7,7 @@
 -- 4 - Removing Duplicates
 -- 5 - Aggregate Functions
 -- 6 - Subquery
-
+-- 7 - View
 --Creating database if doesn't exist and use it
 CREATE DATABASE IF NOT EXISTS exercises;
 USE exercises;
@@ -251,6 +251,47 @@ UPDATE fruits SET Fruit_id = 1 WHERE Fruit_id = (SELECT id FROM fruit_code WHERE
 SELECT * FROM fruits;
 DELETE FROM fruits WHERE Fruit_id = (SELECT id FROM fruit_code WHERE name = 'Apple');
 SELECT * FROM fruits;
+
+-- ------------------------------7 - View-----------------------------------------------
+
+-- Creating tables
+CREATE TABLE fruit_code (
+    Id int PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    Name varchar(20)
+);
+CREATE TABLE fruits (
+    id int PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    Quantity int(2),
+    Fruit_id int,
+    FOREIGN KEY (Fruit_id) REFERENCES fruit_code(Id)    
+);
+
+-- Inserting data
+INSERT INTO fruit_code (Name) VALUES ('Banana'); 
+INSERT INTO fruit_code (Name) VALUES ('Orange');
+INSERT INTO fruit_code (Name) VALUES ('Apple');
+INSERT INTO fruits (Quantity, Fruit_id) VALUES (10, 1);
+INSERT INTO fruits (Quantity, Fruit_id) VALUES (20, 1);
+INSERT INTO fruits (Quantity, Fruit_id) VALUES (30, 2);
+INSERT INTO fruits (Quantity, Fruit_id) VALUES (40, 2);
+INSERT INTO fruits (Quantity, Fruit_id) VALUES (50, 3);
+INSERT INTO fruits (Quantity, Fruit_id) VALUES (60, 3);
+
+-- Displaying all data
+SELECT * FROM fruit_code;
+SELECT * FROM fruits;
+
+-- Displaying data from Vew
+CREATE VIEW view_fruits AS SELECT fruits.*,fruit_code.name FROM fruits JOIN fruit_code ON fruits.id = fruit_code.id
+SELECT * FROM view_fruits;
+CREATE VIEW view_fruits_distinct_fruit_id AS SELECT DISTINCT(Fruit_id) FROM fruits;
+SELECT * FROM view_fruits_distinct_fruit_id;
+CREATE VIEW view_fruits_with_rollup AS SELECT Fruit_id, SUM(Quantity) AS Total_Quantity FROM fruits GROUP BY Fruit_id  WITH ROLLUP
+SELECT * FROM view_fruits_with_rollup;
+
+-- Drop View
+DROP VIEW view_fruits;
+
 
 
 
